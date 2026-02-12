@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BunnyBloom Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-hearts" aria-hidden="true">✿ ♡ ✿ ♡ ✿</div>
+
+    <header class="hero">
+      <h1>🐰 BunnyBloom Planner</h1>
+      <p class="tagline">AP classes + rehearsals + joy, all in one cozy pastel planner.</p>
+      <p>
+        Meet <strong>Hopey the Bunny</strong>: use AI tools, earn carrots, unlock furniture, and build your
+        confidence one day at a time.
+      </p>
+    </header>
+
+    <main>
+      <section class="card pet-card">
+        <h2>Your Study Pet</h2>
+        <div class="pet-area">
+          <div class="pet-stage" id="pet-stage">
+            <div class="furniture-layer" id="furniture-layer" aria-hidden="true">
+              <div class="furniture cloud-bed" id="bed">☁️🛏️</div>
+              <div class="furniture star-lamp" id="lamp">✨🪔</div>
+              <div class="furniture tub" id="tub">🛁🫧</div>
+            </div>
+
+            <button class="bunny-wrap" id="bunny" aria-label="Pet Hopey the bunny" type="button">
+              <div class="ear ear-left"></div>
+              <div class="ear ear-right"></div>
+              <div class="head">
+                <span class="eye eye-left"></span>
+                <span class="eye eye-right"></span>
+                <span class="mouth"></span>
+              </div>
+              <div class="body">
+                <span class="paw paw-left"></span>
+                <span class="paw paw-right"></span>
+              </div>
+              <div class="feet"></div>
+              <div class="fx carrot-fx" id="carrot-fx">🥕</div>
+              <div class="fx bubble-fx" id="bubble-fx">🫧🫧</div>
+              <div class="fx heart-fx" id="heart-fx">💗</div>
+            </button>
+
+            <p class="pet-status" id="pet-status">Click Hopey for a little encouragement ✨</p>
+          </div>
+
+          <div class="pet-controls">
+            <p><strong>Carrots:</strong> <span id="coins">0</span> 🥕</p>
+            <div class="row-buttons">
+              <button id="feed">Feed snack (1 🥕)</button>
+              <button id="shower">Bubble shower (1 🥕)</button>
+            </div>
+            <div class="row-buttons">
+              <button id="buy-bed" class="secondary">Buy cloud bed (3 🥕)</button>
+              <button id="buy-lamp" class="secondary">Buy star lamp (4 🥕)</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Today's Top 3</h2>
+        <p>Pick three wins that matter most today.</p>
+        <div id="top-three"></div>
+        <button id="add-top-three" class="secondary">+ Add priority</button>
+      </section>
+
+      <section class="card">
+        <h2>Schedule + Energy</h2>
+        <div class="schedule-grid">
+          <div>
+            <label for="classes">Classes / rehearsals</label>
+            <textarea id="classes" placeholder="7:45 AP Lit&#10;3:30 Rehearsal&#10;7:00 Choir"></textarea>
+          </div>
+          <div>
+            <label for="energy">Energy</label>
+            <select id="energy">
+              <option>High 🌟</option>
+              <option>Medium 🙂</option>
+              <option>Low 😴</option>
+            </select>
+            <label for="mood">Mood</label>
+            <input id="mood" placeholder="happy / stressed / tired..." />
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>AI Study Sprint Builder</h2>
+        <p>Use this to generate a great prompt for ChatGPT/Claude. (Earns carrots!)</p>
+        <label for="task">What do you need help with?</label>
+        <textarea id="task" placeholder="Study AP Chem + prep rehearsal cues"></textarea>
+        <label for="minutes">Time available (minutes)</label>
+        <input id="minutes" type="number" min="10" step="5" value="60" />
+
+        <button id="generate">Generate AI Prompt (+2 🥕)</button>
+        <label for="prompt-output">Prompt output</label>
+        <textarea id="prompt-output" readonly></textarea>
+        <button id="copy" class="secondary">Copy Prompt (+1 🥕)</button>
+      </section>
+
+      <section class="card">
+        <h2>Pinterest Outfit Picker + Body Positivity</h2>
+        <p>
+          Paste a Pinterest board link and BunnyBloom will try to pull pin links and choose one at random.
+          If your board is private/blocked, paste pin URLs below as fallback.
+        </p>
+        <label for="board-url">Pinterest board URL</label>
+        <input id="board-url" placeholder="https://www.pinterest.com/username/board-name/" />
+        <label for="pin-links">Optional pin URLs (one per line fallback)</label>
+        <textarea id="pin-links" placeholder="https://www.pinterest.com/pin/123456789/&#10;https://www.pinterest.com/pin/987654321/"></textarea>
+        <button id="pick-outfit">Pick My Outfit (+2 🥕)</button>
+
+        <div class="outfit-result" id="outfit-result">
+          <p id="outfit-line">Your outfit pick will appear here ✨</p>
+          <a id="outfit-link" href="#" target="_blank" rel="noopener noreferrer"></a>
+          <p id="body-positive"></p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Chat with Hopey (Faith Encouragement)</h2>
+        <p>Hopey replies with uplifting support grounded in Christian encouragement.</p>
+        <div id="chat-box" class="chat-box"></div>
+        <label for="chat-input">Message Hopey</label>
+        <input id="chat-input" placeholder="I'm nervous for my AP test and rehearsal" />
+        <button id="send-chat">Send Message</button>
+      </section>
+    </main>
+
+    <footer>
+      <button id="save">Save My Day</button>
+      <p id="saved-msg" aria-live="polite"></p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
